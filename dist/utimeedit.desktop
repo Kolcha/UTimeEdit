@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=UTimeEdit
+GenericName=Unix Time Edit
+Comment=Small utility to manipulate Unix timestamps
+Type=Application
+Terminal=false
+Exec=utimeedit
+Icon=utimeedit
+StartupNotify=false
+Categories=Utility;Clock;

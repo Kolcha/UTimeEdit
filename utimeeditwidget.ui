@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UTimeEditWidget</class>
+ <widget class="QWidget" name="UTimeEditWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>235</width>
+    <height>159</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Unix Time Edit</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="4">
+    <widget class="QLineEdit" name="src_timestamp_edit"/>
+   </item>
+   <item row="0" column="4">
+    <widget class="QToolButton" name="now_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/time.svg</normaloff>:/icons/time.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QSpinBox" name="delta_edit"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QComboBox" name="unit_combo_box"/>
+   </item>
+   <item row="1" column="2">
+    <widget class="QToolButton" name="add_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/plus.svg</normaloff>:/icons/plus.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QToolButton" name="sub_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/minus.svg</normaloff>:/icons/minus.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" colspan="4">
+    <widget class="QLineEdit" name="result_timestamp_edit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="4">
+    <widget class="QToolButton" name="copy_timestamp_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/copy.svg</normaloff>:/icons/copy.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="4">
+    <widget class="QLineEdit" name="result_datetime_edit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icons/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

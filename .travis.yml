@@ -1,0 +1,15 @@
+language: cpp
+
+os: linux
+dist: bionic
+
+addons:
+  apt:
+    packages:
+      - qtbase5-dev
+      - libqt5svg5-dev
+      - qttools5-dev-tools
+
+script:
+  - qmake -qt=5 -config release
+  - make -j2
