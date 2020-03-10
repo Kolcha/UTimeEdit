@@ -18,6 +18,8 @@
 #ifndef UTIMEEDITWIDGET_H
 #define UTIMEEDITWIDGET_H
 
+#include <functional>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
