@@ -42,6 +42,8 @@ private slots:
 
   void on_copy_timestamp_button_clicked();
 
+  void on_src_timestamp_edit_textChanged(const QString &arg1);
+
 private:
   void doCalculation(std::function<qint64(qint64, qint64)> op);
 

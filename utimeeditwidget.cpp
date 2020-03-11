@@ -75,3 +75,8 @@ void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
   ui->result_timestamp_edit->setText(QString::number(result_timestamp));
   ui->result_datetime_edit->setText(QDateTime::fromSecsSinceEpoch(result_timestamp, Qt::UTC).toString());
 }
+
+void UTimeEditWidget::on_src_timestamp_edit_textChanged(const QString &arg1)
+{
+  ui->src_datetime_edit->setText(QDateTime::fromSecsSinceEpoch(arg1.toLongLong(), Qt::UTC).toString());
+}
