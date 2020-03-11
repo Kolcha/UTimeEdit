@@ -73,6 +73,8 @@ void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
   qint64 delta = ui->delta_edit->value() * ui->unit_combo_box->currentData().toLongLong();
   qint64 result_timestamp = op(src_timestamp, delta);
   ui->result_timestamp_edit->setText(QString::number(result_timestamp));
+  if (QApplication::keyboardModifiers() & Qt::ShiftModifier)
+    ui->src_timestamp_edit->setText(ui->result_timestamp_edit->text());
   ui->result_datetime_edit->setText(QDateTime::fromSecsSinceEpoch(result_timestamp, Qt::UTC).toString());
 }
 
