@@ -39,7 +39,6 @@ UTimeEditWidget::UTimeEditWidget(QWidget *parent)
 
   ui->unit_combo_box->setCurrentIndex(0);
 
-  ui->delta_edit->setMinimum(std::numeric_limits<int>::min());
   ui->delta_edit->setMaximum(std::numeric_limits<int>::max());
 }
 
