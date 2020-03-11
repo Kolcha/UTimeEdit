@@ -89,6 +89,28 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="4">
+    <widget class="QToolButton" name="src_is_utc_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/globe.svg</normaloff>:/icons/globe.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="4">
+    <widget class="QToolButton" name="res_is_utc_button">
+     <property name="icon">
+      <iconset resource="icons/icons.qrc">
+       <normaloff>:/icons/globe.svg</normaloff>:/icons/globe.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>

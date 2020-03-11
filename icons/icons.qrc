@@ -4,5 +4,6 @@
         <file>plus.svg</file>
         <file>minus.svg</file>
         <file>copy.svg</file>
+        <file>globe.svg</file>
     </qresource>
 </RCC>

@@ -23,6 +23,13 @@
 #include <QDateTime>
 #include <QRegularExpressionValidator>
 
+
+inline QString timestamp2datetime(const QString& timestamp, bool is_utc)
+{
+  return QDateTime::fromSecsSinceEpoch(timestamp.toLongLong(), is_utc ? Qt::UTC : Qt::LocalTime).toString();
+}
+
+
 UTimeEditWidget::UTimeEditWidget(QWidget *parent)
   : QWidget(parent)
   , ui(new Ui::UTimeEditWidget)
@@ -67,6 +74,28 @@ void UTimeEditWidget::on_copy_timestamp_button_clicked()
   QApplication::clipboard()->setText(ui->result_timestamp_edit->text());
 }
 
+void UTimeEditWidget::on_src_timestamp_edit_textChanged(const QString& arg1)
+{
+  ui->src_datetime_edit->setText(timestamp2datetime(arg1, ui->src_is_utc_button->isChecked()));
+}
+
+void UTimeEditWidget::on_result_timestamp_edit_textChanged(const QString& arg1)
+{
+  ui->result_datetime_edit->setText(timestamp2datetime(arg1, ui->res_is_utc_button->isChecked()));
+}
+
+void UTimeEditWidget::on_src_is_utc_button_toggled(bool checked)
+{
+  if (ui->src_timestamp_edit->text().isEmpty()) return;
+  ui->src_datetime_edit->setText(timestamp2datetime(ui->src_timestamp_edit->text(), checked));
+}
+
+void UTimeEditWidget::on_res_is_utc_button_toggled(bool checked)
+{
+  if (ui->result_timestamp_edit->text().isEmpty()) return;
+  ui->result_datetime_edit->setText(timestamp2datetime(ui->result_timestamp_edit->text(), checked));
+}
+
 void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
 {
   qint64 src_timestamp = ui->src_timestamp_edit->text().toLongLong();
@@ -75,10 +104,4 @@ void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
   ui->result_timestamp_edit->setText(QString::number(result_timestamp));
   if (QApplication::keyboardModifiers() & Qt::ShiftModifier)
     ui->src_timestamp_edit->setText(ui->result_timestamp_edit->text());
-  ui->result_datetime_edit->setText(QDateTime::fromSecsSinceEpoch(result_timestamp, Qt::UTC).toString());
-}
-
-void UTimeEditWidget::on_src_timestamp_edit_textChanged(const QString &arg1)
-{
-  ui->src_datetime_edit->setText(QDateTime::fromSecsSinceEpoch(arg1.toLongLong(), Qt::UTC).toString());
 }
