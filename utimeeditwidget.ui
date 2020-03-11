@@ -21,7 +21,7 @@
     <widget class="QSpinBox" name="delta_edit"/>
    </item>
    <item row="4" column="0" colspan="4">
-    <widget class="QLineEdit" name="result_timestamp_edit">
+    <widget class="QLineEdit" name="res_timestamp_edit">
      <property name="readOnly">
       <bool>true</bool>
      </property>
@@ -60,7 +60,7 @@
     <widget class="QComboBox" name="unit_combo_box"/>
    </item>
    <item row="5" column="0" colspan="4">
-    <widget class="QLineEdit" name="result_datetime_edit">
+    <widget class="QLineEdit" name="res_datetime_edit">
      <property name="readOnly">
       <bool>true</bool>
      </property>

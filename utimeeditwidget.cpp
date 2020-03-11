@@ -71,7 +71,7 @@ void UTimeEditWidget::on_sub_button_clicked()
 
 void UTimeEditWidget::on_copy_timestamp_button_clicked()
 {
-  QApplication::clipboard()->setText(ui->result_timestamp_edit->text());
+  QApplication::clipboard()->setText(ui->res_timestamp_edit->text());
 }
 
 void UTimeEditWidget::on_src_timestamp_edit_textChanged(const QString& arg1)
@@ -79,9 +79,9 @@ void UTimeEditWidget::on_src_timestamp_edit_textChanged(const QString& arg1)
   ui->src_datetime_edit->setText(timestamp2datetime(arg1, ui->src_is_utc_button->isChecked()));
 }
 
-void UTimeEditWidget::on_result_timestamp_edit_textChanged(const QString& arg1)
+void UTimeEditWidget::on_res_timestamp_edit_textChanged(const QString& arg1)
 {
-  ui->result_datetime_edit->setText(timestamp2datetime(arg1, ui->res_is_utc_button->isChecked()));
+  ui->res_datetime_edit->setText(timestamp2datetime(arg1, ui->res_is_utc_button->isChecked()));
 }
 
 void UTimeEditWidget::on_src_is_utc_button_toggled(bool checked)
@@ -92,8 +92,8 @@ void UTimeEditWidget::on_src_is_utc_button_toggled(bool checked)
 
 void UTimeEditWidget::on_res_is_utc_button_toggled(bool checked)
 {
-  if (ui->result_timestamp_edit->text().isEmpty()) return;
-  ui->result_datetime_edit->setText(timestamp2datetime(ui->result_timestamp_edit->text(), checked));
+  if (ui->res_timestamp_edit->text().isEmpty()) return;
+  ui->res_datetime_edit->setText(timestamp2datetime(ui->res_timestamp_edit->text(), checked));
 }
 
 void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
@@ -101,7 +101,7 @@ void UTimeEditWidget::doCalculation(std::function<qint64(qint64, qint64)> op)
   qint64 src_timestamp = ui->src_timestamp_edit->text().toLongLong();
   qint64 delta = ui->delta_edit->value() * ui->unit_combo_box->currentData().toLongLong();
   qint64 result_timestamp = op(src_timestamp, delta);
-  ui->result_timestamp_edit->setText(QString::number(result_timestamp));
+  ui->res_timestamp_edit->setText(QString::number(result_timestamp));
   if (QApplication::keyboardModifiers() & Qt::ShiftModifier)
-    ui->src_timestamp_edit->setText(ui->result_timestamp_edit->text());
+    ui->src_timestamp_edit->setText(ui->res_timestamp_edit->text());
 }
