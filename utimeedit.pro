@@ -27,7 +27,7 @@ unix:!macx {
     desktop_file.path = $$prefix/share/applications
     INSTALLS += desktop_file
 
-    app_icon.files = dist/utimeedit.svg
+    app_icon.files = icons/utimeedit.svg
     app_icon.path = $$prefix/share/icons/hicolor/scalable/apps
     INSTALLS += app_icon
 }

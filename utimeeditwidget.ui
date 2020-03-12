@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Unix Time Edit</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons/icons.qrc">
+    <normaloff>:/icons/utimeedit.svg</normaloff>:/icons/utimeedit.svg</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="4">
     <widget class="QLineEdit" name="src_timestamp_edit"/>
